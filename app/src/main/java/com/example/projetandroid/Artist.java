@@ -10,6 +10,27 @@ public class Artist {
     private String flag;
     private String genre;
 
+    public static final String TABLE_NAME="Artist";
+    public static final String COLUMN_SURNAME="surname";
+    public static final String COLUMN_NAME="name";
+    public static final String COLUMN_PHOTO="photo";
+    public static final String COLUMN_biography="biography";
+    public static final String COLUMN_FLAG="flag";
+    public static final String COLUMN_GENRE="genre";
+
+
+
+    public Artist(){}
+
+    public Artist(String surname, String name, Image photo, String biography, String flag, String genre) {
+        this.surname = surname;
+        this.name = name;
+        this.photo = photo;
+        this.biography = biography;
+        this.flag = flag;
+        this.genre = genre;
+    }
+
     public String getSurname() { return surname; }
 
     public void setSurname(String surname) { this.surname = surname; }
