@@ -14,9 +14,16 @@ public class Artist {
     public static final String COLUMN_SURNAME="surname";
     public static final String COLUMN_NAME="name";
     public static final String COLUMN_PHOTO="photo";
-    public static final String COLUMN_biography="biography";
+    public static final String COLUMN_BIOGRAPHY="biography";
     public static final String COLUMN_FLAG="flag";
     public static final String COLUMN_GENRE="genre";
+
+    public static final String CREAT_TABLE="CREATE TABLE"+TABLE_NAME+(COLUMN_SURNAME+" TEXT,"
+            + COLUMN_NAME+" TEXT,"
+            + COLUMN_PHOTO+" TEXT,"
+            + COLUMN_BIOGRAPHY+" TEXT"
+            + COLUMN_FLAG+" TEXT"
+            + COLUMN_GENRE+" TEXT");
 
 
 
