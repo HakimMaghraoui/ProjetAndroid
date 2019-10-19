@@ -27,4 +27,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         onCreate(sqLiteDatabase);
     }
+
+    public long insertArtist(Artist artist) {
+
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(Artist.COLUMN_NAME, artist.getName());
+        values.put(Artist.COLUMN_SURNAME, artist.getSurname());
+        //values.put(Artist.COLUMN_PHOTO, artist.getPhoto());
+        values.put(Artist.COLUMN_BIOGRAPHY, artist.getBiography());
+        values.put(Artist.COLUMN_FLAG, artist.getFlag());
+        values.put(Artist.COLUMN_GENRE, artist.getGenre());
+
+        sqLiteDatabase.close();
+
+        return 0;
+
+    }
 }

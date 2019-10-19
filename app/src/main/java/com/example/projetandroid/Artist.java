@@ -3,6 +3,7 @@ package com.example.projetandroid;
 import android.media.Image;
 
 public class Artist {
+
     private String surname;
     private String name;
     private Image photo;
@@ -10,6 +11,7 @@ public class Artist {
     private String flag;
     private String genre;
 
+    //DataBase Variable
     public static final String TABLE_NAME="Artist";
     public static final String COLUMN_SURNAME="surname";
     public static final String COLUMN_NAME="name";
@@ -26,7 +28,7 @@ public class Artist {
             + COLUMN_GENRE+" TEXT");
 
 
-
+    //Constructrors
     public Artist(){}
 
     public Artist(String surname, String name, Image photo, String biography, String flag, String genre) {
@@ -37,6 +39,8 @@ public class Artist {
         this.flag = flag;
         this.genre = genre;
     }
+
+    //Getters and Setters
 
     public String getSurname() { return surname; }
 
@@ -61,4 +65,7 @@ public class Artist {
     public String getGenre() { return genre; }
 
     public void setGenre(String genre) { this.genre = genre; }
+
+
+
 }
