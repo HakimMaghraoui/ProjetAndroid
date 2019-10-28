@@ -18,7 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(Artist.CREAT_TABLE);
+        sqLiteDatabase.execSQL(Artist.CREATE_TABLE);
     }
 
     @Override
@@ -34,10 +34,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(Artist.COLUMN_NAME, artist.getName());
         values.put(Artist.COLUMN_SURNAME, artist.getSurname());
-        //values.put(Artist.COLUMN_PHOTO, artist.getPhoto());
+        values.put(Artist.COLUMN_PHOTO, artist.getPhoto());
         values.put(Artist.COLUMN_BIOGRAPHY, artist.getBiography());
         values.put(Artist.COLUMN_FLAG, artist.getFlag());
         values.put(Artist.COLUMN_GENRE, artist.getGenre());
+
+        long  id = sqLiteDatabase.insert(artist.TABLE_NAME, null, values);
 
         sqLiteDatabase.close();
 
