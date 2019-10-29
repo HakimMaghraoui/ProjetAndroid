@@ -22,13 +22,13 @@ public class Artist {
     public static final String COLUMN_FLAG="flag";
     public static final String COLUMN_GENRE="genre";
 
-    public static final String CREATE_TABLE ="CREATE TABLE"+TABLE_NAME+"("+COLUMN_SURNAME+" TEXT,"
-            + COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + COLUMN_NAME+" TEXT,"
-            + COLUMN_PHOTO+" TEXT,"
-            + COLUMN_BIOGRAPHY+" TEXT,"
-            + COLUMN_FLAG+" TEXT,"
-            + COLUMN_GENRE+" TEXT"+")";
+    public static final String CREATE_TABLE ="CREATE TABLE "+TABLE_NAME+"( "+COLUMN_SURNAME+" TEXT, "
+            + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + COLUMN_NAME+" TEXT, "
+            + COLUMN_PHOTO+" TEXT, "
+            + COLUMN_BIOGRAPHY+" TEXT, "
+            + COLUMN_FLAG+" TEXT, "
+            + COLUMN_GENRE+" TEXT"+" )";
 
 
     //Constructrors

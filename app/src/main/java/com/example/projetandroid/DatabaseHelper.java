@@ -5,8 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
+    private static final String TAG=DatabaseHelper.class.getSimpleName();
 
     private static final int DATABASE_VERSION=1;
     private static final String DATABASE_NAME="Artist";
@@ -18,11 +20,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+
         sqLiteDatabase.execSQL(Artist.CREATE_TABLE);
+
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Artist.TABLE_NAME);
 
         onCreate(sqLiteDatabase);
@@ -43,7 +47,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.close();
 
-        return 0;
+        return id;
+
 
     }
+
+    public Cursor getAllGenre(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor testquery= db.rawQuery("SELECT DISTINCT "+Artist.COLUMN_GENRE+" FROM "+Artist.TABLE_NAME, new String[]{});
+        return testquery;
+    }
+
+
 }
