@@ -11,6 +11,7 @@ import android.util.Log;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG=MainActivity.class.getSimpleName();
     public DatabaseHelper dbs;
+    GenreFragment genreFragment;
 
 
     @Override
@@ -26,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         Cursor testquery= dbs.getAllGenre();
         Log.d(TAG, ""+testquery.getCount());
         Log.d(TAG ,"i'm here!!!");
+
+        setContentView(R.layout.activity_main);
+        genreFragment = (GenreFragment) getSupportFragmentManager().findFragmentById(R.id.genreID);
+
     }
 
     private void createArtist(String surname, String name, String photo, String biography, String flag, String genre){

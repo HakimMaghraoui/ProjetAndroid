@@ -42,7 +42,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(Artist.COLUMN_BIOGRAPHY, artist.getBiography());
         values.put(Artist.COLUMN_FLAG, artist.getFlag());
         values.put(Artist.COLUMN_GENRE, artist.getGenre());
-
         long  id = sqLiteDatabase.insert(artist.TABLE_NAME, null, values);
 
         sqLiteDatabase.close();
