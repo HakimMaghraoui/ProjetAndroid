@@ -8,16 +8,18 @@ import android.util.Log;
 
 
 
+
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG=MainActivity.class.getSimpleName();
+   /* private static final String TAG=MainActivity.class.getSimpleName();
     public DatabaseHelper dbs;
-    GenreFragment genreFragment;
+    GenreFragment genreFragment;*/
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.out.println("TAG = "+TAG);
+        setContentView(R.layout.activity_main);
+        /*System.out.println("TAG = "+TAG);
         dbs = new DatabaseHelper(this);
         Log.d(TAG, "my log is here");
         setContentView(R.layout.activity_main);
@@ -28,15 +30,17 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, ""+testquery.getCount());
         Log.d(TAG ,"i'm here!!!");
 
-        setContentView(R.layout.activity_main);
         genreFragment = (GenreFragment) getSupportFragmentManager().findFragmentById(R.id.genreID);
+        setContentView(R.layout.activity_main);
+        */
+
 
     }
 
-    private void createArtist(String surname, String name, String photo, String biography, String flag, String genre){
+    /*private void createArtist(String surname, String name, String photo, String biography, String flag, String genre){
         Artist artist = new Artist(surname, name, photo, biography, flag, genre);
         long id= dbs.insertArtist(artist);
     }
 
-
+*/
 }

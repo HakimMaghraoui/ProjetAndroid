@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">ProjetAndroid</string>
+    <string-array name="Genres">
+        <item>Pop</item>
+        <item>Rock</item>
+        <item>Electronic</item>
+        <item>Country</item>
+        <item>Hip-Hop</item>
+        <item>Classic</item>
+        <item>Jazz</item>
+        <item>Dubstep</item>
+    </string-array>
 </resources>
