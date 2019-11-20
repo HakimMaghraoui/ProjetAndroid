@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.activity_main);
         createArtist("test", "test", "test", "tesgrregregregsdq", "america", "Jazz");
         createArtist("test", "test", "test", "tesgrregregregsdq", "america", "Pop");
+        createArtist("test2", "test22", "test", "tesgrregregregsdq", "america", "Pop");
+        createArtist("test3", "test33", "test", "tesgrregregregsdq", "america", "Pop");
         createArtist("test", "test", "test", "tesgrregregregsdq", "america", "Rock");
         Cursor testquery= dbs.getAllGenre();
         //Log.d(TAG, ""+testquery.getCount());
@@ -39,11 +41,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         testquery.close();
-
+        String[] artisstesTab= null;
         Cursor query2 = dbs.getAllArtistWith("Pop");
+        int i=0;
         if (query2.moveToFirst()){
             do{
                 String data = query2.getString(query2.getColumnIndex("name"));
+                artisstesTab[i]= data;
+                i++;
                 Log.d(TAG, data);
             }while(query2.moveToNext());
         }
