@@ -33,6 +33,7 @@ public class ListGenres extends ListFragment implements AdapterView.OnItemClickL
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
        // Toast.makeText(getActivity(), "Item: " + position, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(view.getContext(),Activity2.class);
+        //System.out.println("GENRE= "+getResources().getStringArray(R.array.Genres)[position]);
         intent.putExtra("genre",getResources().getStringArray(R.array.Genres)[position]);
         startActivity(intent);
     }

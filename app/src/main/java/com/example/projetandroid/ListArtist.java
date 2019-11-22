@@ -15,10 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ListArtist extends ListFragment implements AdapterView.OnItemClickListener  {
-
+    String genre;
     DatabaseHelper db;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
+        genre=getArguments().getString("genre");
         View view = inflater.inflate(R.layout.list_artist, container, false);
         return view;
     }
@@ -27,10 +30,10 @@ public class ListArtist extends ListFragment implements AdapterView.OnItemClickL
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         db = new DatabaseHelper(getContext());
-        Cursor cursor = db.getAllArtistWith("Jazz");
+        Cursor cursor = db.getAllArtistWith(genre);
         ArrayList<String> listartist = new ArrayList<>();
         for(cursor.moveToFirst();!cursor.isAfterLast(); cursor.moveToNext()){
-            listartist.add(cursor.getString(0));
+            listartist.add(cursor.getString(0)+" "+cursor.getString(1)+" "+cursor.getString(4));
         }
         String[] arr = new String[listartist.size()];
         arr=listartist.toArray(arr);

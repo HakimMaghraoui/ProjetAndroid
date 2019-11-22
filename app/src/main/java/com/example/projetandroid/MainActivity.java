@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "my log is here");
         //setContentView(R.layout.activity_main);
         createArtist("test", "test", "test", "tesgrregregregsdq", "america", "Jazz");
+        createArtist("test2", "test2", "test", "tesgrregregregsdq", "america", "Jazz");
         createArtist("test", "test", "test", "tesgrregregregsdq", "america", "Pop");
         createArtist("test2", "test22", "test", "tesgrregregregsdq", "america", "Pop");
         createArtist("test3", "test33", "test", "tesgrregregregsdq", "america", "Pop");
