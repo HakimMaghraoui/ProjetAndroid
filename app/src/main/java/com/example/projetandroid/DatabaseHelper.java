@@ -63,7 +63,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getAllArtistWith(String genre){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor query = db.rawQuery("SELECT DISTINCT "+Artist.COLUMN_NAME+", "+Artist.COLUMN_SURNAME+", "+Artist.COLUMN_FLAG+" FROM "+Artist.TABLE_NAME+" WHERE "+Artist.COLUMN_GENRE+"="+genre+";", new String[]{});
+        Cursor query = db.rawQuery("SELECT DISTINCT "+Artist.COLUMN_NAME+", "+Artist.COLUMN_SURNAME+", "+Artist.COLUMN_FLAG+" FROM "+Artist.TABLE_NAME+" WHERE "+Artist.COLUMN_GENRE+"='"+genre+"';", new String[]{});
         return query;
     }
 

@@ -34,7 +34,7 @@ public class ListArtist extends ListFragment implements AdapterView.OnItemClickL
         Cursor cursor = db.getAllArtistWith(genre);
         ArrayList<String> listartist = new ArrayList<>();
         for(cursor.moveToFirst();!cursor.isAfterLast(); cursor.moveToNext()){
-            listartist.add(cursor.getString(0)+" "+cursor.getString(1)+" "+cursor.getString(4));
+            listartist.add(cursor.getString(0)+" "+cursor.getString(1)+" "+cursor.getString(2));
         }
         /*String[] arr = new String[listartist.size()];
         arr=listartist.toArray(arr);*/
