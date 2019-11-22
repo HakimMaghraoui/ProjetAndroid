@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         //Log.d(TAG, ""+testquery.getCount());
 
         //ici on peux donc afficher tout les genre
-        if (testquery.moveToFirst()){
+        /*if (testquery.moveToFirst()){
             do{
                 String data = testquery.getString(testquery.getColumnIndex("genre"));
                 Log.d(TAG, data);
@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         }
         query2.close();
         Log.d(TAG ,"i'm here!!!");
+        */
 
         /*
         genreFragment = (GenreFragment) getSupportFragmentManager().findFragmentById(R.id.genreID);

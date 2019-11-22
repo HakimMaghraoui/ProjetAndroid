@@ -7,17 +7,22 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Activity2 extends AppCompatActivity {
+    String genre;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent=getIntent();
-        String genre=intent.getStringExtra("genre");
-        Bundle bundle = new Bundle();
+        genre=intent.getStringExtra("genre");
+        /*Bundle bundle = new Bundle();
         bundle.putString("genre",genre);
         ListArtist listArtist = new ListArtist();
-        listArtist.setArguments(bundle);
+        listArtist.setArguments(bundle);*/
         System.out.println("ACTIVITY2 GENRE = "+genre);
 
         setContentView(R.layout.activity2);
+    }
+
+    public String getGenre(){
+        return genre;
     }
 }
