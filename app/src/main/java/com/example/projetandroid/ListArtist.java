@@ -1,5 +1,6 @@
 package com.example.projetandroid;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -45,6 +46,8 @@ public class ListArtist extends ListFragment implements AdapterView.OnItemClickL
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        Intent intent=new Intent(view.getContext(),ActivityBio.class);
+        intent.putExtra("artist",(String) parent.getItemAtPosition(position));
+        startActivity(intent);
     }
 }
