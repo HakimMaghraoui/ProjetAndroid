@@ -17,4 +17,8 @@ public class ActivityBio extends AppCompatActivity {
 
         setContentView(R.layout.activity_bio);
     }
+
+    public String getArtist() {
+        return artist;
+    }
 }

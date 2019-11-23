@@ -22,18 +22,14 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("TAG = "+TAG);
         dbs = new DatabaseHelper(this);
         Log.d(TAG, "my log is here");
-        //setContentView(R.layout.activity_main);
-        createArtist("test", "test", "test", "tesgrregregregsdq", "america", "Jazz");
-        createArtist("test2", "test2", "test", "tesgrregregregsdq", "america", "Jazz");
-        createArtist("test", "test", "test", "tesgrregregregsdq", "america", "Pop");
-        createArtist("test2", "test22", "test", "tesgrregregregsdq", "america", "Pop");
-        createArtist("test3", "test33", "test", "tesgrregregregsdq", "america", "Pop");
-        createArtist("test", "test", "test", "tesgrregregregsdq", "america", "Rock");
+        dbs.initData();
+
+
         Cursor testquery= dbs.getAllGenre();
         //Log.d(TAG, ""+testquery.getCount());
 
         //ici on peux donc afficher tout les genre
-        /*if (testquery.moveToFirst()){
+       /* if (testquery.moveToFirst()){
             do{
                 String data = testquery.getString(testquery.getColumnIndex("genre"));
                 Log.d(TAG, data);
@@ -54,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
             }while(query2.moveToNext());
         }
         query2.close();
-        Log.d(TAG ,"i'm here!!!");
-        */
+        Log.d(TAG ,"i'm here!!!");*/
+
 
         /*
         genreFragment = (GenreFragment) getSupportFragmentManager().findFragmentById(R.id.genreID);
@@ -65,10 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void createArtist(String surname, String name, String photo, String biography, String flag, String genre){
-        Artist artist = new Artist(surname, name, photo, biography, flag, genre);
-        long id= dbs.insertArtist(artist);
-    }
+
 
 
 }
