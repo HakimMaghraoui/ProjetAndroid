@@ -91,7 +91,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String surname=tmp[0];
         String name=tmp[1];
         String flag = tmp[2];
-        Cursor query = db.rawQuery("SELECT DISTINCT "+Artist.TABLE_NAME+" FROM "+Artist.TABLE_NAME+" WHERE "+Artist.TABLE_NAME+"="+"'"+name+"' AND "+Artist.COLUMN_SURNAME+"="+"'"+surname+"' AND "+Artist.COLUMN_FLAG+"="+"'"+flag+"' "+";", new String[]{});
+        Cursor query = db.rawQuery("SELECT DISTINCT "+"*"+" FROM "+Artist.TABLE_NAME+" WHERE "+Artist.COLUMN_NAME+"="+"'"+name+"' AND "+Artist.COLUMN_SURNAME+"="+"'"+surname+"' AND "+Artist.COLUMN_FLAG+"="+"'"+flag+"' "+";", new String[]{});
         return  query;
     }
 

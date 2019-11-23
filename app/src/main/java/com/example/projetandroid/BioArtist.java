@@ -1,5 +1,6 @@
 package com.example.projetandroid;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,9 +37,18 @@ public class BioArtist extends Fragment {
         super.onActivityCreated(savedInstanceState);
         //ici tu peut recupere ta string artist depuis l'activity bio comme ça
         ActivityBio activityBio= (ActivityBio)getActivity();
-        String artist=activityBio.getArtist();
+        String artistS=activityBio.getArtist();
         //pour utiliser la base de donnees il faut que tu la recuper depuis le context
         db = new DatabaseHelper(getContext());
         //et la tu fait tu le chose qui te sert en utilisant aussi le methode de la base de donnees en partant de db
+        Cursor cursor =db.getArtistWith(artistS);
+        if (cursor.moveToFirst()) {
+
+                String data = cursor.getString(cursor.getColumnIndex("biography"));
+                System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKK");
+                System.out.println(data);
+
+        }
+
     }
 }

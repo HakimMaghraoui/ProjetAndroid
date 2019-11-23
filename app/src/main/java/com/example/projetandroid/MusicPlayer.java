@@ -1,4 +1,6 @@
 package com.example.projetandroid;
 
-public class MusicPlayer {
+import androidx.fragment.app.Fragment;
+
+public class MusicPlayer extends Fragment {
 }
