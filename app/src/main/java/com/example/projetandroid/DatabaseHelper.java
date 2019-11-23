@@ -52,8 +52,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void initData(){
-        createArtist("Miles", "Devis", "@drawable/artist_miles_devis.png", "Miles Dewey Davis III [maɪlz ˈdjuːi ˈdeɪvɪs ðə θɝd]1, né le 26 mai 1926 à Alton (Illinois) et mort le 28 septembre 1991 à Santa Monica (Californie), est un compositeur et trompettiste de jazz américain.","USA", "Jazz");
-        createArtist("Queen", "", "@drawable/artist_queen.png", "Queen [kwiːn]5 Écouter est un groupe de rock britannique, originaire de Londres, en Angleterre. Il est formé en 1970 par Freddie Mercury, Brian May et Roger Taylor, ces deux derniers étant issus du groupe Smile. L’année suivante, le bassiste John Deacon vient compléter la formation. Les quatre membres de Queen sont tous des auteurs-compositeurs.", "UK", "Rock");
+        createArtist("Miles", "Devis", "artist_miles_devis", "Miles Dewey Davis III [maɪlz ˈdjuːi ˈdeɪvɪs ðə θɝd]1, né le 26 mai 1926 à Alton (Illinois) et mort le 28 septembre 1991 à Santa Monica (Californie), est un compositeur et trompettiste de jazz américain.","USA", "Jazz");
+        createArtist("Queen", "", "artist_queen", "Queen [kwiːn]5 Écouter est un groupe de rock britannique, originaire de Londres, en Angleterre. Il est formé en 1970 par Freddie Mercury, Brian May et Roger Taylor, ces deux derniers étant issus du groupe Smile. L’année suivante, le bassiste John Deacon vient compléter la formation. Les quatre membres de Queen sont tous des auteurs-compositeurs.", "UK", "Rock");
         createArtist("test", "test", "test", "tesgrregregregsdq", "USA", "Pop");
         createArtist("test2", "test22", "test", "tesgrregregregsdq", "FR", "Pop");
         createArtist("test3", "test33", "test", "tesgrregregregsdq", "JP", "Pop");
@@ -88,10 +88,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getArtistWith(String s){
         SQLiteDatabase db = this.getWritableDatabase();
         String[] tmp=s.split(" ");
-        String surname=tmp[0];
-        String name=tmp[1];
+        String surname=tmp[1];
+        String name=tmp[0];
         String flag = tmp[2];
-        Cursor query = db.rawQuery("SELECT DISTINCT "+"*"+" FROM "+Artist.TABLE_NAME+" WHERE "+Artist.COLUMN_NAME+"="+"'"+name+"' AND "+Artist.COLUMN_SURNAME+"="+"'"+surname+"' AND "+Artist.COLUMN_FLAG+"="+"'"+flag+"' "+";", new String[]{});
+
+        Cursor query = db.rawQuery("SELECT "+"*"+" FROM "+Artist.TABLE_NAME+" WHERE "+Artist.COLUMN_NAME+"="+"'"+name+"' AND "+Artist.COLUMN_SURNAME+"="+"'"+surname+"' AND "+Artist.COLUMN_FLAG+"="+"'"+flag+"' "+";", new String[]{});
         return  query;
     }
 

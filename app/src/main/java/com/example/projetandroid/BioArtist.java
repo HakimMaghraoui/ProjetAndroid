@@ -1,6 +1,9 @@
 package com.example.projetandroid;
 
+import android.app.Activity;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,13 +45,20 @@ public class BioArtist extends Fragment {
         db = new DatabaseHelper(getContext());
         //et la tu fait tu le chose qui te sert en utilisant aussi le methode de la base de donnees en partant de db
         Cursor cursor =db.getArtistWith(artistS);
-        if (cursor.moveToFirst()) {
+        if(cursor.moveToFirst()){
 
-                String data = cursor.getString(cursor.getColumnIndex("biography"));
-                System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKK");
-                System.out.println(data);
+            String biography = cursor.getString(cursor.getColumnIndex("biography"));
+            TextView biographyTxt = getView().findViewById(R.id.bioText);
+            biographyTxt.setText(biography);
 
+            String pic = cursor.getString(cursor.getColumnIndex("photo"));
+            ImageView picImg = getView().findViewById(R.id.bioPic);
+            System.out.println(pic);
+            picImg.setImageResource(getResources().getIdentifier(pic,"drawable", activityBio.getPackageName()));
         }
+
+
+
 
     }
 }
