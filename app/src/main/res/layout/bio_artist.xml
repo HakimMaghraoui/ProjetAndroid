@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:id="@+id/relativeLayout">
 
@@ -8,17 +10,21 @@
         android:layout_width="152dp"
         android:layout_height="142dp"
         android:paddingTop="20dp"
+        android:layout_weight=".30"
         android:src="@drawable/play1" />
 
     <TextView
         android:id="@+id/bioText"
         android:layout_width="258dp"
         android:layout_height="489dp"
-        android:paddingTop="20dp"
-        android:textColor="#000000"
-        android:textSize="20dp"
         android:layout_alignParentRight="true"
-        android:text="bioText" />
+        android:layout_weight=".70"
+        android:paddingTop="20dp"
+        android:text="bioText"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/bioPic"
+        tools:layout_editor_absoluteY="0dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -27,5 +33,7 @@
         android:layout_below="@id/bioText"
         android:layout_alignParentRight="true"
         android:paddingTop="10dp"
-        android:text="SeeMoreOnWiki" />
-</RelativeLayout>
+        android:text="SeeMoreOnWiki"
+        app:layout_constraintTop_toBottomOf="@+id/bioText"
+        tools:layout_editor_absoluteX="285dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
