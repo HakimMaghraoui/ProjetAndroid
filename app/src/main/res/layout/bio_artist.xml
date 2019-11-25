@@ -9,31 +9,35 @@
         android:id="@+id/bioPic"
         android:layout_width="152dp"
         android:layout_height="142dp"
-        android:paddingTop="20dp"
         android:layout_weight=".30"
-        android:src="@drawable/play1" />
+        android:paddingTop="20dp"
+        android:src="@drawable/play1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/bioText"
-        android:layout_width="258dp"
-        android:layout_height="489dp"
+        android:layout_width="229dp"
+        android:layout_height="537dp"
         android:layout_alignParentRight="true"
         android:layout_weight=".70"
+        android:autoSizeTextType="uniform"
         android:paddingTop="20dp"
         android:text="bioText"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bioPic"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/bioText"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:paddingTop="10dp"
         android:text="SeeMoreOnWiki"
-        app:layout_constraintTop_toBottomOf="@+id/bioText"
-        tools:layout_editor_absoluteX="285dp" />
+        app:layout_constraintEnd_toEndOf="@+id/bioText"
+        app:layout_constraintTop_toBottomOf="@+id/bioText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
