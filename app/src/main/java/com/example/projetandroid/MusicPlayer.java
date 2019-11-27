@@ -4,10 +4,12 @@ import android.content.Context;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Debug;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.database.Cursor;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -74,13 +76,14 @@ public class MusicPlayer extends Fragment {
 
         }
 
-        String song = "R.raw.music_queen_bohemian_rhabsody.mp3";
-        //player(song);
+        int song = R.raw.music_queen_bohemian_rhabsody;
+        player(song);
 
 
     }
 
-    public View player(String song) {
+    public View player(int song) {
+        Context context = getContext();
         final ViewHolder viewHolder;
 
         viewHolder=new ViewHolder();
@@ -89,21 +92,32 @@ public class MusicPlayer extends Fragment {
         TextView songNameText = getView().findViewById(R.id.songNameText);
         ImageView playB = getView().findViewById(R.id.playB);
         ImageView stopB =getView().findViewById(R.id.stopB);
+        viewHolder.songNameText=songNameText;
+        viewHolder.playB=playB;
+        viewHolder.stopB=stopB;
         //view.setTag(viewHolder);
       //  viewHolder.songNameText.setText(song);
 
         //play Music
+       viewHolder.playB.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Context context = getContext();
+               if (flag) {
+                   mediaPlayer = MediaPlayer.create(context, R.raw.music_queen_bohemian_rhabsody);
+                   flag = false;
+                   mediaPlayer.start();
 
-        if(flag){//new
-            mediaPlayer = MediaPlayer.create(context, Uri.parse("android.resource://com.my.package/raw/music_queen_bohemian_rhabsody.mp3"));//trouver quoi mettre a la place de 0
-            flag = false;
-            onPlay=song;
+               }
+           }
+       });
 
-        }
-        if(mediaPlayer.isPlaying() ) {
+
+
+        /*if(mediaPlayer.isPlaying() ) {
             mediaPlayer.pause();
             onPlay = "";
-        }
+        }*/
         return getView();
 
     }
