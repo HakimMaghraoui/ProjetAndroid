@@ -38,12 +38,12 @@ public class BioArtist extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        //ici tu peut recupere ta string artist depuis l'activity bio comme ça
+        //on récupère l'artiste
         ActivityBio activityBio= (ActivityBio)getActivity();
         String artistS=activityBio.getArtist();
-        //pour utiliser la base de donnees il faut que tu la recuper depuis le context
+        //pour utiliser la base de donnees il faut la récuperer depuis le contexte
         db = new DatabaseHelper(getContext());
-        //et la tu fait tu le chose qui te sert en utilisant aussi le methode de la base de donnees en partant de db
+
         Cursor cursor =db.getArtistWith(artistS);
         if(cursor.moveToFirst()){
 
