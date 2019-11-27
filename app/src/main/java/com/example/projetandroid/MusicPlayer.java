@@ -32,6 +32,7 @@ public class MusicPlayer extends Fragment {
     private String onPlay= "";
     private Context context=getActivity();
     private int layout;
+
    /* private ArrayList<Music> arrayList;
 
     public void CustomMusicAdapter(Context context, int layout, ArrayList<Music> arrayList) {
@@ -70,14 +71,19 @@ public class MusicPlayer extends Fragment {
 
         if(cursor.moveToFirst()){
 
-            String name = cursor.getString(cursor.getColumnIndex("name"));
+            //String name = cursor.getString(cursor.getColumnIndex("name"));
+
+            String songS =  cursor.getString(cursor.getColumnIndex("song"));
+
+            Context context = getContext();
             TextView songNameText = getView().findViewById(R.id.songNameText);
-            songNameText.setText(name);
+            songNameText.setText(songS);
+
+            int song = getResources().getIdentifier(songS, "raw", activityBio.getPackageName());
+            player(song);
 
         }
 
-        int song = R.raw.music_queen_bohemian_rhabsody;
-        player(song);
 
 
     }
@@ -97,14 +103,14 @@ public class MusicPlayer extends Fragment {
         viewHolder.stopB=stopB;
         //view.setTag(viewHolder);
       //  viewHolder.songNameText.setText(song);
-
+        mediaPlayer = MediaPlayer.create(context, song);
         //play Music
        viewHolder.playB.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                Context context = getContext();
                if (flag) {
-                   mediaPlayer = MediaPlayer.create(context, R.raw.music_queen_bohemian_rhabsody);
+
                    flag = false;
                    mediaPlayer.start();
 
