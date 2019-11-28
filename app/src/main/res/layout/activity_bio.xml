@@ -15,6 +15,7 @@
         android:layout_height="604dp"
         android:layout_weight="1" />
 
+
     <fragment
         android:id="@+id/musicFrag"
         android:name="com.example.projetandroid.MusicPlayer"

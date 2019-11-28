@@ -84,7 +84,7 @@ public class MusicPlayer extends Fragment {
 
         }
 
-
+//comment
 
     }
 
@@ -108,17 +108,26 @@ public class MusicPlayer extends Fragment {
        viewHolder.playB.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               Context context = getContext();
                if (flag) {
-
                    flag = false;
                    mediaPlayer.start();
 
                }
+               if(mediaPlayer.isPlaying()){
+                   mediaPlayer.pause();
+                  // viewHolder.playB.setImageResource(R.drawable.pauseB);
+               }
+
            }
        });
 
-
+        viewHolder.stopB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                flag=true;
+                mediaPlayer.stop();
+            }
+        });
 
         /*if(mediaPlayer.isPlaying() ) {
             mediaPlayer.pause();

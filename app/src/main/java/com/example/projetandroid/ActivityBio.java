@@ -14,7 +14,7 @@ public class ActivityBio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent=getIntent();
         artist=intent.getStringExtra("artist");
-
+        //comment
 
         setContentView(R.layout.activity_bio);
     }

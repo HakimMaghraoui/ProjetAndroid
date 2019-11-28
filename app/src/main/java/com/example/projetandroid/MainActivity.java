@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         dbs = new DatabaseHelper(this);
         Log.d(TAG, "my log is here");
         dbs.initData();
-
+//comment
 
         Cursor testquery= dbs.getAllGenre();
         //Log.d(TAG, ""+testquery.getCount());

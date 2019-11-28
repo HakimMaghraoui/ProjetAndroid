@@ -18,7 +18,7 @@ public class Activity2 extends AppCompatActivity {
         ListArtist listArtist = new ListArtist();
         listArtist.setArguments(bundle);*/
         System.out.println("ACTIVITY2 GENRE = "+genre);
-
+        //comment
         setContentView(R.layout.activity2);
     }
 

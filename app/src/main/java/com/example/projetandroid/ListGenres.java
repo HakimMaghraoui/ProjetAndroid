@@ -38,3 +38,4 @@ public class ListGenres extends ListFragment implements AdapterView.OnItemClickL
         startActivity(intent);
     }
 }
+//comment

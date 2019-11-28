@@ -25,7 +25,7 @@ public class BioArtist extends Fragment {
 
     ImageView bioPic;
     String artistS;
-
+    //comment
 
     DatabaseHelper db;
     @Nullable

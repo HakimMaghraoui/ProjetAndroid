@@ -23,7 +23,7 @@ public class ListArtist extends ListFragment implements AdapterView.OnItemClickL
         return view;
     }
 
-
+    //comment
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
