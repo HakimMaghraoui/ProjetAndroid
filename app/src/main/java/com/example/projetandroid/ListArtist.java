@@ -8,11 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.ListFragment;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ListArtist extends ListFragment implements AdapterView.OnItemClickListener  {
@@ -30,18 +33,55 @@ public class ListArtist extends ListFragment implements AdapterView.OnItemClickL
         db = new DatabaseHelper(getContext());
         Activity2 activity2 = (Activity2) getActivity();
         String genre=activity2.getGenre();
-        Bundle bundle= getArguments();
-       /* genre=bundle.getString("genre");*/
         Cursor cursor = db.getAllArtistWith(genre);
-        ArrayList<String> listartist = new ArrayList<>();
+
+        ArrayList<String> textartist = new ArrayList<>();
         for(cursor.moveToFirst();!cursor.isAfterLast(); cursor.moveToNext()){
-            listartist.add(cursor.getString(0)+" "+cursor.getString(1)+" "+cursor.getString(2));
+            textartist.add(cursor.getString(0)+" "+cursor.getString(1));
         }
-        /*String[] arr = new String[listartist.size()];
-        arr=listartist.toArray(arr);*/
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,listartist);
-        setListAdapter(adapter);
+        String[] listartisttext = new String[textartist.size()];
+        listartisttext=textartist.toArray(listartisttext);
+        ArrayList<String>imgartist = new ArrayList<>();
+        for (cursor.moveToFirst();!cursor.isAfterLast(); cursor.moveToNext()){
+            imgartist.add(cursor.getString(2));
+        }
+        String[] listartistimg = new String[imgartist.size()];
+        listartistimg=imgartist.toArray(listartistimg);
+        List<HashMap<String,String>> aList = new ArrayList<>();
+        for (int i=0; i<imgartist.size();i++){
+            HashMap<String, String> hm = new HashMap<String, String>();
+            hm.put("ListText",listartisttext[i]);
+            hm.put("ListImage",(listartistimg[i]));
+            aList.add(hm);
+        }
+        String[]from={"ListText","ListImage"};
+        int[]to={R.id.listartist_text,R.id.listartist_image};
+        SimpleAdapter simpleAdapter= new SimpleAdapter(getContext(),aList,R.layout.listartist_items,from,to);
+        getListView().setAdapter(simpleAdapter);
+
+        //setListAdapter(simpleAdapter);
+
         getListView().setOnItemClickListener(this);
+
+
+        /*ArrayList<String>imgartist = new ArrayList<>();
+        for (cursor.moveToFirst();!cursor.isAfterLast(); cursor.moveToNext()){
+            imgartist.add(cursor.getString(2));
+        }
+        ArrayList<String> nomartist = new ArrayList<>();
+        for(cursor.moveToFirst();!cursor.isAfterLast(); cursor.moveToNext()){
+            nomartist.add(cursor.getString(0)+" "+cursor.getString(1)+" "+cursor.getString(2));
+        }
+        List<HashMap<String,String>> hashMaps = new ArrayList<>();
+        for(int i=0;i<imgartist.size();i++){
+            HashMap<String, String> hm = new HashMap<String, String>();
+            hm.put("listview_item_text",nomartist.get(i));
+            hm.put("listview_image",imgartist.get(i));
+        }
+        String[] from={"listview_item_text","listview_image"};
+        int[] to={R.id.listview_item_text,R.id.listview_image};
+        SimpleAdapter simpleAdapter=new SimpleAdapter(getContext(),hashMaps,R.layout.single_list_item,from,to);
+        setListAdapter(simpleAdapter);*/
     }
 
     @Override

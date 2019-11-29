@@ -9,7 +9,7 @@ public class Artist {
     private String name;
     private String photo;
     private String biography;
-    private String flag;
+    private int flag;
     private String genre;
     private String song;
 
@@ -30,15 +30,15 @@ public class Artist {
             + COLUMN_NAME+" TEXT, "
             + COLUMN_PHOTO+" TEXT, "
             + COLUMN_BIOGRAPHY+" TEXT, "
-            + COLUMN_FLAG+" TEXT, "
+            + COLUMN_FLAG+" INT, "
             + COLUMN_GENRE+" TEXT, "
-            + COLUMN_SONG+" )";
+            + COLUMN_SONG+" TEXT )";
 
 
     //Constructrors
     public Artist(){}
 
-    public Artist(String surname, String name, String photo, String biography, String flag, String genre, String song) {
+    public Artist(String surname, String name, String photo, String biography, int flag, String genre, String song) {
         this.surname = surname;
         this.name = name;
         this.photo = photo;
@@ -74,9 +74,9 @@ public class Artist {
 
     public void setBiography(String biography) { this.biography = biography; }
 
-    public String getFlag() { return flag; }
+    public int getFlag() { return flag; }
 
-    public void setFlag(String flag) { this.flag = flag; }
+    public void setFlag(int flag) { this.flag = flag; }
 
     public String getGenre() { return genre; }
 
