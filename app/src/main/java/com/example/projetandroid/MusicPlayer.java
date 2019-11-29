@@ -32,8 +32,26 @@ public class MusicPlayer extends Fragment {
     private String onPlay= "";
     private Context context=getActivity();
     private int layout;
+    public int song;
+    public boolean beg;
 
-   /* private ArrayList<Music> arrayList;
+    public boolean getBeg() {
+        return beg;
+    }
+
+    public void setBeg(boolean beg) {
+        this.beg = beg;
+    }
+
+    public int getSong() {
+        return song;
+    }
+
+    public void setSong(int song) {
+        this.song = song;
+    }
+
+    /* private ArrayList<Music> arrayList;
 
     public void CustomMusicAdapter(Context context, int layout, ArrayList<Music> arrayList) {
         this.context = context;
@@ -79,8 +97,8 @@ public class MusicPlayer extends Fragment {
             TextView songNameText = getView().findViewById(R.id.songNameText);
             songNameText.setText(songS);
 
-            int song = getResources().getIdentifier(songS, "raw", activityBio.getPackageName());
-            player(song);
+            setSong(getResources().getIdentifier(songS, "raw", activityBio.getPackageName()));
+            player(getSong());
 
         }
 
@@ -103,19 +121,31 @@ public class MusicPlayer extends Fragment {
         viewHolder.stopB=stopB;
         //view.setTag(viewHolder);
       //  viewHolder.songNameText.setText(song);
-        mediaPlayer = MediaPlayer.create(context, song);
+        //mediaPlayer = MediaPlayer.create(context, song);
         //play Music
        viewHolder.playB.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
+               //boolean beg=false;
+              // int length;
                if (flag) {
+                   if(getBeg()==false) {
+                       mediaPlayer = MediaPlayer.create(getContext(), getSong());
+                       setBeg(true);
+                   }
                    flag = false;
                    mediaPlayer.start();
 
+                   viewHolder.playB.setImageResource(R.drawable.pause1);
+
                }
-               if(mediaPlayer.isPlaying()){
+               else{
                    mediaPlayer.pause();
-                  // viewHolder.playB.setImageResource(R.drawable.pauseB);
+                   flag=true;
+                   //length=mediaPlayer.getCurrentPosition();
+                   //onPause=true;
+                   viewHolder.playB.setImageResource(R.drawable.play1);
+
                }
 
            }
@@ -125,7 +155,9 @@ public class MusicPlayer extends Fragment {
             @Override
             public void onClick(View view) {
                 flag=true;
+                viewHolder.playB.setImageResource(R.drawable.play1);
                 mediaPlayer.stop();
+                setBeg(false);
             }
         });
 
