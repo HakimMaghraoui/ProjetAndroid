@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProjetAndroid</string>
+    <string name="app_name">MusicArchive</string>
     <string-array name="Genres">
         <item>Pop</item>
         <item>Rock</item>
