@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.ListFragment;
@@ -87,7 +88,11 @@ public class ListArtist extends ListFragment implements AdapterView.OnItemClickL
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent=new Intent(view.getContext(),ActivityBio.class);
-        intent.putExtra("artist",(String) parent.getItemAtPosition(position));
+        TextView textView=(TextView) view.findViewById(R.id.listartist_text);
+        String text= textView.getText().toString();
+        System.out.println("TEXT= "+text);
+        intent.putExtra("artist",text);
+
         startActivity(intent);
     }
 }
