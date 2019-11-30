@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -32,8 +30,8 @@ public class ListArtist extends ListFragment implements AdapterView.OnItemClickL
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         db = new DatabaseHelper(getContext());
-        Activity2 activity2 = (Activity2) getActivity();
-        String genre=activity2.getGenre();
+        ActivityArtist activityArtist = (ActivityArtist) getActivity();
+        String genre= activityArtist.getGenre();
         Cursor cursor = db.getAllArtistWith(genre);
 
         ArrayList<String> textartist = new ArrayList<>();

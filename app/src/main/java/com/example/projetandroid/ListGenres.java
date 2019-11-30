@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.ListFragment;
@@ -32,7 +31,7 @@ public class ListGenres extends ListFragment implements AdapterView.OnItemClickL
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
        // Toast.makeText(getActivity(), "Item: " + position, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(view.getContext(),Activity2.class);
+        Intent intent = new Intent(view.getContext(), ActivityArtist.class);
         //System.out.println("GENRE= "+getResources().getStringArray(R.array.Genres)[position]);
         intent.putExtra("genre",getResources().getStringArray(R.array.Genres)[position]);
         startActivity(intent);
