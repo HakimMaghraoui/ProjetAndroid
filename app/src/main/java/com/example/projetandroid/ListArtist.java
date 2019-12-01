@@ -25,7 +25,6 @@ public class ListArtist extends ListFragment implements AdapterView.OnItemClickL
         return view;
     }
 
-    //comment
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -33,7 +32,6 @@ public class ListArtist extends ListFragment implements AdapterView.OnItemClickL
         ActivityArtist activityArtist = (ActivityArtist) getActivity();
         String genre= activityArtist.getGenre();
         Cursor cursor = db.getAllArtistWith(genre);
-
         ArrayList<String> textartist = new ArrayList<>();
         for(cursor.moveToFirst();!cursor.isAfterLast(); cursor.moveToNext()){
             textartist.add(cursor.getString(0)+" "+cursor.getString(1));
@@ -57,30 +55,7 @@ public class ListArtist extends ListFragment implements AdapterView.OnItemClickL
         int[]to={R.id.listartist_text,R.id.listartist_image};
         SimpleAdapter simpleAdapter= new SimpleAdapter(getContext(),aList,R.layout.listartist_items,from,to);
         getListView().setAdapter(simpleAdapter);
-
-        //setListAdapter(simpleAdapter);
-
         getListView().setOnItemClickListener(this);
-
-
-        /*ArrayList<String>imgartist = new ArrayList<>();
-        for (cursor.moveToFirst();!cursor.isAfterLast(); cursor.moveToNext()){
-            imgartist.add(cursor.getString(2));
-        }
-        ArrayList<String> nomartist = new ArrayList<>();
-        for(cursor.moveToFirst();!cursor.isAfterLast(); cursor.moveToNext()){
-            nomartist.add(cursor.getString(0)+" "+cursor.getString(1)+" "+cursor.getString(2));
-        }
-        List<HashMap<String,String>> hashMaps = new ArrayList<>();
-        for(int i=0;i<imgartist.size();i++){
-            HashMap<String, String> hm = new HashMap<String, String>();
-            hm.put("listview_item_text",nomartist.get(i));
-            hm.put("listview_image",imgartist.get(i));
-        }
-        String[] from={"listview_item_text","listview_image"};
-        int[] to={R.id.listview_item_text,R.id.listview_image};
-        SimpleAdapter simpleAdapter=new SimpleAdapter(getContext(),hashMaps,R.layout.single_list_item,from,to);
-        setListAdapter(simpleAdapter);*/
     }
 
     @Override
@@ -88,7 +63,6 @@ public class ListArtist extends ListFragment implements AdapterView.OnItemClickL
         Intent intent=new Intent(view.getContext(),ActivityBio.class);
         TextView textView=(TextView) view.findViewById(R.id.listartist_text);
         String text= textView.getText().toString();
-        System.out.println("TEXT= "+text);
         intent.putExtra("artist",text);
 
         startActivity(intent);

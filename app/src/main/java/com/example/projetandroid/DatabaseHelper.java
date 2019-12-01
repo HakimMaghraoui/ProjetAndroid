@@ -32,6 +32,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
+    /*
+    insertion d'un artiste dans la bdd
+     */
     public long insertArtist(Artist artist) {
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
@@ -48,10 +51,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.close();
 
         return id;
-//comment
 
     }
 
+    /*
+    initialisation des données dans la bdd
+     */
     public void initData(){
         createArtist("Miles", "Devis", "artist_miles_devis", "Miles Dewey Davis III, né le 26 mai 1926 à Alton (Illinois) et mort le 28 septembre 1991 à Santa Monica (Californie), est un compositeur et trompettiste de jazz américain.",R.drawable.flag_us, "Jazz", "blueingreen");
         createArtist("Queen", "", "artist_queen", "Queen est un groupe de rock britannique, originaire de Londres, en Angleterre. Il est formé en 1970 par Freddie Mercury, Brian May et Roger Taylor, ces deux derniers étant issus du groupe Smile. L’année suivante, le bassiste John Deacon vient compléter la formation. Les quatre membres de Queen sont tous des auteurs-compositeurs.", R.drawable.flag_uk, "Rock", "bohemianrhabsody");
@@ -62,21 +67,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         createArtist("Skrillex", "", "artist_skrillex", "Skrillex, de son vrai nom Sonny John Moore, né le 15 janvier 1988 à Los Angeles, est un DJ et compositeur américain de musique électronique. Après avoir grandi au nord de la Californie, Sonny Moore rejoint le groupe de post-hardcore From First to Last en tant que chanteur en 2004 et y enregistre deux albums studio (Dear Diary, My Teen Angst Has a Body Count en 2004, et Heroine en 2006) avant de se lancer dans une carrière musicale en solo. Il lance sa première tournée en solo la même année. Aux côtés d'une nouvelle formation de groupe, Sonny Moore joue à l'Alternative Press Tour en soutien à des groupes comme All Time Low et The Rocket Summer et apparaît sur la couverture des « 100 groupes à connaître » du magazine Alternative Press.", R.drawable.flag_us, "Electronic", "bangarang");
 
     }
+
+    /*
+    creation d'un objet artist
+     */
     private void createArtist(String surname, String name, String photo, String biography, int flag, String genre, String song){
         Artist artist = new Artist(surname, name, photo, biography, flag, genre, song);
         long id= this.insertArtist(artist);
     }
 
+    /*
+    return tout les differents genres dans la bdd
+     */
     public Cursor getAllGenre(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor testquery= db.rawQuery("SELECT DISTINCT "+Artist.COLUMN_GENRE+" FROM "+Artist.TABLE_NAME, new String[]{});
-
-        int number = testquery.getCount();
-
         return testquery;
     }
 
-
+    /*
+    return les artist qui ont comme genre la string en parametre
+     */
     public Cursor getAllArtistWith(String genre){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor query = db.rawQuery("SELECT DISTINCT "+Artist.COLUMN_NAME+", "+Artist.COLUMN_SURNAME+", "+Artist.COLUMN_FLAG+" FROM "+Artist.TABLE_NAME+" WHERE "+Artist.COLUMN_GENRE+"='"+genre+"';", new String[]{});
@@ -84,7 +95,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /*
-        get all of the information of an artist with a string s that contains name and surname, split by " "
+        return un artist correspondant a la string s qui contient son nom et prenom
         @param: String s
         @return: Cursor query
      */

@@ -18,7 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import java.util.ArrayList;
 
 public class MusicPlayer extends Fragment {
 
@@ -51,14 +50,6 @@ public class MusicPlayer extends Fragment {
         this.song = song;
     }
 
-    /* private ArrayList<Music> arrayList;
-
-    public void CustomMusicAdapter(Context context, int layout, ArrayList<Music> arrayList) {
-        this.context = context;
-        this.layout = layout;
-        this.arrayList = arrayList;
-    }*/
-
     //on veut pouvoir gérer les élémenst visuelles.
     private class ViewHolder {
         TextView songNameText;
@@ -83,13 +74,8 @@ public class MusicPlayer extends Fragment {
         db = new DatabaseHelper(getContext());
 
         Cursor cursor =db.getArtistWith(artistS);
-        /*if (cursor.moveToFirst()){
-
-        }*/
 
         if(cursor.moveToFirst()){
-
-            //String name = cursor.getString(cursor.getColumnIndex("name"));
 
             String songS =  cursor.getString(cursor.getColumnIndex("song"));
 
@@ -101,9 +87,6 @@ public class MusicPlayer extends Fragment {
             player(getSong());
 
         }
-
-//comment
-
     }
 
     public View player(int song) {

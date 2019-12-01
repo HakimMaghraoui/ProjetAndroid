@@ -1,6 +1,5 @@
 package com.example.projetandroid;
 
-import android.media.Image;
 
 public class Artist {
 
@@ -35,8 +34,7 @@ public class Artist {
             + COLUMN_SONG+" TEXT )";
 
 
-    //Constructrors
-    public Artist(){}
+    //Constructror
 
     public Artist(String surname, String name, String photo, String biography, int flag, String genre, String song) {
         this.surname = surname;
@@ -47,7 +45,6 @@ public class Artist {
         this.genre = genre;
         this.song=song;
     }
-    //comment
     //Getters and Setters
 
     public int getId() {

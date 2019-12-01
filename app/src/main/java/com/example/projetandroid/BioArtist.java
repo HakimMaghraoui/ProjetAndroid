@@ -19,13 +19,6 @@ import androidx.fragment.app.Fragment;
 
 
 public class BioArtist extends Fragment {
-    RelativeLayout relativeLayout;
-
-    TextView bioText;
-
-    ImageView bioPic;
-    String artistS;
-    //comment
 
     DatabaseHelper db;
     @Nullable
@@ -38,10 +31,8 @@ public class BioArtist extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        //on récupère l'artiste
         ActivityBio activityBio= (ActivityBio)getActivity();
         String artistS=activityBio.getArtist();
-        //pour utiliser la base de donnees il faut la récuperer depuis le contexte
         db = new DatabaseHelper(getContext());
 
         Cursor cursor =db.getArtistWith(artistS);
@@ -53,7 +44,6 @@ public class BioArtist extends Fragment {
 
             String pic = cursor.getString(cursor.getColumnIndex("photo"));
             ImageView picImg = getView().findViewById(R.id.bioPic);
-            System.out.println(pic);
             picImg.setImageResource(getResources().getIdentifier(pic,"drawable", activityBio.getPackageName()));
         }
 

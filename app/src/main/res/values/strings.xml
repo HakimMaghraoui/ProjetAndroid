@@ -1,12 +1,3 @@
 <resources>
     <string name="app_name">MusicArchive</string>
-    <string-array name="Genres">
-        <item>Pop</item>
-        <item>Rock</item>
-        <item>Electronic</item>
-        <item>Country</item>
-        <item>Hip-Hop</item>
-        <item>Classic</item>
-        <item>Jazz</item>
-    </string-array>
 </resources>
