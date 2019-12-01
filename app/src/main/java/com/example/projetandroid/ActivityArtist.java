@@ -12,6 +12,8 @@ public class ActivityArtist extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //comment
+        Intent intent=getIntent();
+        genre=intent.getStringExtra("genre");
         setContentView(R.layout.activity2);
     }
 
