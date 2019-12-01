@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
+
 
 
 public class BioArtist extends Fragment {
@@ -41,6 +44,13 @@ public class BioArtist extends Fragment {
             String biography = cursor.getString(cursor.getColumnIndex("biography"));
             TextView biographyTxt = getView().findViewById(R.id.bioText);
             biographyTxt.setText(biography);
+
+
+            String wiki = cursor.getString(cursor.getColumnIndex("photo"));
+            TextView wikitv = getView().findViewById(R.id.textView4);
+            wikitv.setText(getResources().getIdentifier(wiki,"string",activityBio.getPackageName()));
+            wikitv.setMovementMethod(LinkMovementMethod.getInstance());
+
 
             String pic = cursor.getString(cursor.getColumnIndex("photo"));
             ImageView picImg = getView().findViewById(R.id.bioPic);

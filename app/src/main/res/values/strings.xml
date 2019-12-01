@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">MusicArchive</string>
+
+    <string name="artist_eminem">
+        <a href="https://fr.wikipedia.org/wiki/Eminem">See More on Wiki</a>
+    </string>
+
+    <string name="artist_merl_haggard">
+        <a href="https://fr.wikipedia.org/wiki/Merle_Haggard">See More on Wiki</a>
+    </string>
+
+    <string name="artist_michael_jackson">
+        <a href="https://fr.wikipedia.org/wiki/Michael_Jackson">See More on Wiki</a>
+    </string>
+
+    <string name="artist_miles_devis">
+        <a href="https://fr.wikipedia.org/wiki/Miles_Davis">See More on Wiki</a>
+    </string>
+
+    <string name="artist_queen">
+        <a href="https://fr.wikipedia.org/wiki/Queen">See More on Wiki</a>
+    </string>
+
+    <string name="artist_skrillex">
+        <a href="https://fr.wikipedia.org/wiki/Skrillex">See More on Wiki</a>
+    </string>
+
+    <string name="artist_wolfgangamadeus_mozart">
+        <a href="https://fr.wikipedia.org/wiki/Wolfgang_Amadeus_Mozart">See More on Wiki</a>
+    </string>
+
 </resources>
